@@ -10,6 +10,7 @@
 
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import Navbar from './components/Navbar'
 import {
   SafeAreaView,
   ScrollView,
@@ -41,14 +42,22 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <Navigator
-      screenOptions={{
-        headerStyle:{},
-        headerShown:false
-      }}
-      >
-        <Screen name='Home' component={Home} options={{title:'Home Screen'}} />
-        <Screen name='Details' component={Detail} options={{title:'Details'}} />
+      <Navigator>
+        <Screen name='Home' component={Home} options={{
+          title:'Home Screen',
+          headerTransparent:true,
+          header:(navigation)=> <Navbar navigation={navigation} main={true} />,
+          }} />
+        <Screen name='Details' component={Detail} options={{
+          title:'Details',
+          headerTransparent: true,
+          header:(navigation)=> <Navbar navigation={navigation} main={false} />,
+          }} />
+          <Screen name='Search' component={Detail} options={{
+          title:'Search',
+          headerTransparent: true,
+          header:(navigation)=> <Navbar navigation={navigation} main={false} />,
+          }} />
         
       </Navigator>
       
