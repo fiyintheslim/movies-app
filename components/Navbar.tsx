@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, SafeAreaView, TouchableOpacity, Image, StyleSheet} from 'react-native';
+import {View, Text, SafeAreaView, TouchableOpacity, Image, StyleSheet, Dimensions} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {Prop} from '../types';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
@@ -16,7 +16,7 @@ export default function Navbar(props:Back) {
     return (
         
         
-        <SafeAreaView style={{backgroundColor:'rgba(0, 0, 0, 1)'}}>
+        <>
             {main ? 
                 <View style={styles.home}>
                     <Image
@@ -28,7 +28,7 @@ export default function Navbar(props:Back) {
                         }}
                         
                     />
-                    <TouchableOpacity onPress={()=>navigation.navigation.navigate('search')}>
+                    <TouchableOpacity style={{paddingRight:20}} onPress={()=>navigation.navigation.navigate('Search')}>
                         <Icon name={'search-outline'} size={20} color={'white'} />
                     </TouchableOpacity>
                 </View>
@@ -39,11 +39,11 @@ export default function Navbar(props:Back) {
                     </TouchableOpacity>
                 </View>
             }
-        </SafeAreaView>
+        </>
         
     )
 }
-
+const dimensions = Dimensions.get('screen')
 const styles=StyleSheet.create({
     cont:{
         
@@ -52,6 +52,8 @@ const styles=StyleSheet.create({
         display:'flex',
         flexDirection:'row',
         justifyContent:'space-between',
-        alignItems:'center'
+        alignItems:'center',
+        zIndex:999,
+        width:dimensions.width
     }
 })

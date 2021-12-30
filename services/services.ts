@@ -50,3 +50,9 @@ export const getGenres =async  ()=>{
     
     return resp.data.results
 }
+//search movies or tv
+export async function searchMovieTv(query:string, type:string){
+    const resp = await axios.get(`${movieURL}search/${type}?${apiKey}&query=${query}`);
+    // const tvResp = await axios.get(`${movieURL}search/tv?${apiKey}&query=${query}`);
+    return resp.data.results   
+}

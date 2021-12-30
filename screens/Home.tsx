@@ -5,6 +5,7 @@ import {View, Button, StyleSheet, Dimensions, ScrollView, ActivityIndicator} fro
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import Slider from '../components/slider';
 import List from '../components/List'
+import Navbar from '../components/Navbar'
 
 
 
@@ -57,6 +58,9 @@ import List from '../components/List'
         <>
         {loaded ? 
         <ScrollView style={styles.scroll}>
+            <View style={{position:'absolute', top:0}}>
+                <Navbar navigation={prop} main={true} />
+            </View>
             <View style={styles.home}>
                 <Slider sliderImages={images}  />
             </View>

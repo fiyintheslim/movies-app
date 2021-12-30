@@ -32,6 +32,7 @@ import {
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './screens/Home';
 import Detail from './screens/Detail';
+import Search from './screens/search';
 
 const {Screen, Navigator} = createNativeStackNavigator()
 
@@ -44,19 +45,20 @@ const App = () => {
     <NavigationContainer>
       <Navigator>
         <Screen name='Home' component={Home} options={{
-          title:'Home Screen',
-          headerTransparent:true,
-          header:(navigation)=> <Navbar navigation={navigation} main={true} />,
+            title:'Home Screen',
+            headerTransparent:true,
+            headerShown:false,
+            header:(navigation)=> <Navbar navigation={navigation} main={true} />,
           }} />
         <Screen name='Details' component={Detail} options={{
-          title:'Details',
-          headerTransparent: true,
-          header:(navigation)=> <Navbar navigation={navigation} main={false} />,
+            title:'Details',
+            headerTransparent: true,
+            header:(navigation)=> <Navbar navigation={navigation} main={false} />,
           }} />
-          <Screen name='Search' component={Detail} options={{
-          title:'Search',
-          headerTransparent: true,
-          header:(navigation)=> <Navbar navigation={navigation} main={false} />,
+          <Screen name='Search' component={Search} options={{
+            title:'Search',
+            headerTransparent: true,
+            header:(navigation)=> <Navbar navigation={navigation} main={false} />,
           }} />
         
       </Navigator>
